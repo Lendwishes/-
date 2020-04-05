@@ -1,0 +1,38 @@
+import os
+import os.path
+import json
+import datetime
+import locale
+import pip
+def install(requests)
+    if hasattr(pip, 'main'):
+        pip.main(['install', requests])
+    else:
+        pip._internal.main(['install', requests])
+if os.name == 'nt':
+    locale.setlocale(locale.LC_CTYPE,'chinese')
+import requests
+exit = int("0")
+headers = {
+'Content-Type': 'text/plain'
+}
+if os.path.isfile("key.ini") == True:
+    print("您已经有了数据文件，请问您接下来的操作是。。（输入数字序号回车）")
+    print("1   ）退出程序")
+    print("2   ）手动输入key并保存到key.ini")
+    print("回车）以导入现有配置文件")
+    print("\n")
+    chose = input("接下来：")
+    if chose == "1":
+        exit = int("1")
+        print("已退出，部分解释器需要按任意键再退出")
+    elif chose == "2":
+        print("请手动输入key\n请注意不要直接粘贴整个curl命令\n也不要任何的空格")
+        key = input("请输入： ")
+        file = open("key.ini","w+")
+        file.write(key)
+        file.close()
+        url = "https://app.qun.qq.com/cgi-bin/api/hookrobot_send?key="+key
+        print('初始化完成，导入数据操作完成')
+    else:
+        with open('key.ini') 

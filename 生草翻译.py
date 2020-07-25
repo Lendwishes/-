@@ -16,16 +16,7 @@ while start < 1:
         while xunhuan < times:
             print("正在执行第" + str(xunhuan) + "次翻译（共" + str(times) + "次）")
             xunhuan = xunhuan + 1
-            result = str(trans.translate(userinput, dest=language[random.randint(0,104)]))
-            resultlist = result.split(",")
-            finallyresult1 = resultlist[2]
-            output = finallyresult1.replace(" text=", "", 1)
-            userinput = output
+            userinput = str(trans.translate(userinput, dest=language[random.randint(0,104)]).text)
         print("正在执行第" + str(times) + "次翻译（共" + str(times) + "次）")
-        result = trans.translate(userinput, dest="zh-cn")
-        result = str(result)
-        resultlist = result.split(",")
-        finallyresult1 = resultlist[2]
-        output = finallyresult1.replace(" text=", "", 1)
-        userinput = output
-        print("翻译完成，以下为最终结果\n==========\n" + output + "\n==========")
+        userinput = str(trans.translate(userinput, dest="zh-cn").text)
+        print("翻译完成，以下为最终结果\n==========\n" + userinput + "\n==========")
